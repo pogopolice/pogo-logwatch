@@ -50,4 +50,11 @@ class logwatch (
   package { 'logwatch':
     ensure => present,
   }
+  file { '/usr/share/logwatch/default.conf/logwatch.conf'
+    owner  =>  'root',
+    group  =>  'root',
+    mode   =>  '0440',
+    owner  =>  'root',
+    source =>   'puppet:///modules/logwatch/logwatch.conf',
+  }
 }
