@@ -35,7 +35,18 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class logwatch {
+class logwatch (
+    $logdir   =  $logwatch::params::logdir,
+    $tmpdir   =  $logwatch::params::tmpdir,
+    $mailto   =  $logwatch::params::mailto,
+    $mailfrom =  $logwatch::params::mailfrom,
+    $print    =  $logwatch::params::print,
+    $range    =  $logwatch::params::range,
+    $detail   =  $logwatch::params::detail,
+    $service  =  $logwatch::params::service,
+    $mailer   =  $logwatch::params::mailer,
+) inherits logwatch::params {
+
   package { 'logwatch':
     ensure => present,
   }
