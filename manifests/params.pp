@@ -16,7 +16,7 @@ class logwatch::params {
   if $::osfamily == 'RedHat' or $::operatingsystem == 'amazon' {
     $logdir   = '/var/log'
     $tmpdir   = '/var/cache/logwatch'
-    $mailgo   = 'admin@example.com'
+    $mailto   = 'admin@example.com'
     $mailfrom = 'node@jpcs.lan'
     $print    = ''
     $range    = 'yesterday'
