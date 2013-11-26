@@ -50,7 +50,8 @@ class logwatch (
   package { 'logwatch':
     ensure => present,
   }
-  file { '/usr/share/logwatch/default.conf/logwatch.conf'
+  file { "${logwatch::params::conf_dir}/${logwatch::params::conf_file}":
+    ensure =>  file,
     owner  =>  'root',
     group  =>  'root',
     mode   =>  '0440',

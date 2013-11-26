@@ -23,6 +23,9 @@ class apache::params {
     $detail   = 'Low'
     $service  = 'All'
     $mailer   = 'sendmail -t'
+    $conf_dir = '/usr/share/logwatch/default.conf/'
+    $conf_file = 'logwatch.conf'
+    $conf_template = 'logwatch/logwatch.conf.erb'
   } else {
     fail("Class['apache::params']: Unsupported osfamily: ${::osfamily}")
   }
