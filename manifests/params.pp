@@ -1,10 +1,10 @@
 # /usr/share/logwatch/default.conf/logwatch.conf
 
-class apache::params {
+class logwatch::params {
   $osr_array = split($::operatingsystemrelease,'[\/\.]')
   $distrelease = $osr_array[0]
   if ! $distrelease {
-    fail("Class['apache::params']: Unparsable \$::operatingsystemrelease: ${::operatingsystemrelease}")
+    fail("Class['logwatch::params']: Unparsable \$::operatingsystemrelease: ${::operatingsystemrelease}")
   }
 
   if($::fqdn) {
@@ -27,7 +27,7 @@ class apache::params {
     $conf_file = 'logwatch.conf'
     $conf_template = 'logwatch/logwatch.conf.erb'
   } else {
-    fail("Class['apache::params']: Unsupported osfamily: ${::osfamily}")
+    fail("Class['logwatch::params']: Unsupported osfamily: ${::osfamily}")
   }
 }
 

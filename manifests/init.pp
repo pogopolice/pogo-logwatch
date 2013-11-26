@@ -51,11 +51,10 @@ class logwatch (
     ensure => present,
   }
   file { "${logwatch::params::conf_dir}/${logwatch::params::conf_file}":
-    ensure =>  file,
-    owner  =>  'root',
-    group  =>  'root',
-    mode   =>  '0440',
-    owner  =>  'root',
-    source =>   'puppet:///modules/logwatch/logwatch.conf',
+    ensure  =>  file,
+    content => template($conf_template),
+    owner   =>  'root',
+    group   =>  'root',
+    mode    =>  '0440',
   }
 }
