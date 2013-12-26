@@ -36,23 +36,15 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class logwatch (
-    $logdir   =  $logwatch::params::logdir,
-    $tmpdir   =  $logwatch::params::tmpdir,
-    $mailto   =  $logwatch::params::mailto,
-    $mailfrom =  $logwatch::params::mailfrom,
-    $print    =  $logwatch::params::print,
-    $range    =  $logwatch::params::range,
-    $detail   =  $logwatch::params::detail,
-    $service  =  $logwatch::params::service,
-    $mailer   =  $logwatch::params::mailer,
+    $logwatch_address   = $logwatch::params::logwatch_address,
 ) inherits logwatch::params {
 
   package { 'logwatch':
     ensure => present,
   }
-  file { "${logwatch::params::conf_dir}/${logwatch::params::conf_file}":
+  file { "${$logwatch::params::alias_conf_dir}/${logwatch::params::alias_conf_file}":
     ensure  =>  file,
-    content => template($conf_template),
+    content => template($alias_conf_template),
     owner   =>  'root',
     group   =>  'root',
     mode    =>  '0440',
